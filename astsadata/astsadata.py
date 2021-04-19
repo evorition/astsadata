@@ -153,3 +153,11 @@ UnempRate.index = UnempRate.index.to_period("M")
 varve = pd.read_csv(f"{path}/data/varve.csv", index_col=0, parse_dates=True)
 
 WBC = pd.read_csv(f"{path}/data/WBC.csv", index_col=0, parse_dates=True)
+
+djia = pd.read_csv(
+    f"{path}/data/djia.csv",
+    index_col=0,
+    parse_dates=True,
+    date_parser=lambda x: pd.to_datetime(x, unit="s"),
+)
+djia.index = djia.index.to_period("B")
